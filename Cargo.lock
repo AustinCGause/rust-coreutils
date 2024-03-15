@@ -121,7 +121,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-core-utils-remake"
+name = "rust-coreutils"
 version = "0.1.0"
 dependencies = [
  "clap",
