@@ -27,15 +27,15 @@ enum Commands {
 
 #[derive(Args)]
 struct EchoArgs {
-    text:Vec<String>,
+    tokens:Vec<String>,
 }
 
 fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Echo(text) => {
-            run(text.text.to_owned());
+        Commands::Echo(tokens) => {
+            run(tokens.tokens.to_owned());
         },
         Commands::Ls => { print!("Ls used"); }
     }

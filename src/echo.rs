@@ -1,5 +1,5 @@
-pub fn run(text_to_echo: Vec<String>) {
-    for word in text_to_echo {
-        print!("{word} ");
+pub fn run(tokens: Vec<String>) {
+    for token in tokens {
+        print!("{token} ");
     }
 }
