@@ -4,8 +4,8 @@ use clap::{
     Subcommand
 };
 
-use echo::run;
 mod echo;
+use echo::run;
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
