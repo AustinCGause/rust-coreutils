@@ -1,3 +1,5 @@
+use std::fs::File;
+
 use clap::{
     Args,
     Parser,
@@ -5,7 +7,7 @@ use clap::{
 };
 
 mod echo;
-use echo::run;
+use echo::echo;
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
@@ -21,6 +23,7 @@ enum Commands {
     /// Echo text
     Echo(EchoArgs),
 
+    Cat(CatArgs),
     /// Currently just a test
     Ls
 }
@@ -30,12 +33,20 @@ struct EchoArgs {
     tokens:Vec<String>,
 }
 
+#[derive(Args)]
+struct CatArgs {
+    file2:File,
+}
+
 fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
         Commands::Echo(tokens) => {
-            run(tokens.tokens.to_owned());
+            echo(tokens.tokens.to_owned());
+        },
+        Commands::Cat(file) => {
+            print!("{}",file.file2);   
         },
         Commands::Ls => { print!("Ls used"); }
     }
